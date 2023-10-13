@@ -25,6 +25,7 @@ Route::prefix('v1')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/users', [UserController::class, 'index']);
         Route::get('/users/{user}', [UserController::class, 'show']);
+        Route::post('/logout', [AuthController::class, 'logout']);
     });
 
     Route::apiResource('invoices', InvoiceController::class);
