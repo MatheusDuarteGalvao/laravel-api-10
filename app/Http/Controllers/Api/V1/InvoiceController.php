@@ -13,6 +13,11 @@ class InvoiceController extends Controller
 {
     use HttpResponses;
 
+    public function __construct()
+    {
+        $this->middleware(['auth:sanctum', 'ability:invoice-store,invoice-update'])->only(['store', 'update', 'destroy']);
+    }
+
     /**
      * Display a listing of the resource.
      */
